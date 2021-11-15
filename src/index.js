@@ -60,7 +60,7 @@ var initModel2Function = async function (scene) {
   var frezaMesh1 = freza1.meshes[0];
   frezaMesh1.rotate(new Vector3(0, 0, 1), (frezaMesh1.rotation.y += 0.00001));
 
-  frezaMesh1.scaling = new Vector3(0.1, 0.1, 0.07);
+  frezaMesh1.scaling = new Vector3(0.1, 0.1, 0.08);
   frezaMesh1.rotate(new Vector3(-1, 0, 0), Math.PI / 2);
   frezaMesh1.position.x = -1;
   frezaMesh1.position.z = -2;
