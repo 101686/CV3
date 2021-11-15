@@ -23,12 +23,12 @@ var initSetup = async function () {
   //const camera = new UniversalCamera("kamera",new Vector3(1,1,10),scene);
   const camera = new DeviceOrientationCamera(
     "kamera",
-    new Vector3(1, 1, 10),
+    new Vector3(1, 1, 20),
     scene
   );
 
   //zaměřit kameru do středu
-  camera.setTarget(new Vector3(0, 1, 0));
+  camera.setTarget(new Vector3(0, 3, 0));
   scene.activeCamera.attachControl(canvas, false);
   const environment1 = scene.createDefaultEnvironment({
     enableGroundShadow: true
@@ -62,7 +62,7 @@ var initModel2Function = async function (scene) {
 
   frezaMesh1.scaling = new Vector3(0.1, 0.1, 0.07);
   frezaMesh1.rotate(new Vector3(-1, 0, 0), Math.PI / 2);
-  frezaMesh1.position.x = -1;
+  frezaMesh1.position.x = -2;
   frezaMesh1.position.z = -2;
   var sixDofDragBehavior = new SixDofDragBehavior();
   sixDofDragBehavior.rotateDraggedObject = true;
