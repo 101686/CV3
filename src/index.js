@@ -135,3 +135,5 @@ initSetup().then((scene) => {
   initModelFunction(scene);
   initModel2Function(scene);
 });
+
+//Komentář
