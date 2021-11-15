@@ -91,7 +91,7 @@ var initModelFunction = async function (scene) {
   scene.registerBeforeRender(function () {
     //sphere.position.x += 0.03;
     //light1.setDirectionToTarget(sphere.position);
-    if (frezaMesh2.position.x > -1) {
+    if (frezaMesh2.position.x > 2) {
       frezaMesh2.rotate(new Vector3(0, 0, 1), (frezaMesh2.rotation.y += 0.01));
     }
 
@@ -116,7 +116,7 @@ var initModelFunction = async function (scene) {
 
     keyFrames.push({
       frame: frameRate,
-      value: -2
+      value: 5
     });
 
     keyFrames.push({
@@ -128,7 +128,7 @@ var initModelFunction = async function (scene) {
     frezaMesh2.animations.push(xSlide);
     scene.beginAnimation(frezaMesh2, 0, 2 * frameRate, true);
   };
-  //  animationFunction(frezaMesh2);
+  animationFunction(frezaMesh2);
 };
 
 initSetup().then((scene) => {
