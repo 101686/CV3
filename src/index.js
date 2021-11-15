@@ -41,6 +41,7 @@ var initSetup = async function () {
   window.addEventListener("resize", () => engine.resize());
 
   engine.runRenderLoop(() => scene.render());
+  //návratová hodnota z funkce
   return scene;
 };
 
@@ -131,7 +132,65 @@ var initModelFunction = async function (scene) {
   animationFunction(frezaMesh2);
 };
 
+var initModelFrezaFunction = async function (scene) {
+  var freza1 = await SceneLoader.ImportMeshAsync("", "public/", "endmill.glb");
+  var freza1mesh = freza1.meshes[0];
+  freza1mesh.rotate(new Vector3(-1, 0, 0), Math.PI / 2);
+  freza1mesh.scaling = new Vector3(0.1, 0.1, 0.1);
+  freza1mesh.position.x = 3;
+  scene.registerBeforeRender(function () {
+    var poloha = freza1mesh.position.x;
+    if (poloha > 0) {
+      freza1mesh.rotate(new Vector3(0, 0, 1), (freza1mesh.rotation.y += 0.01));
+    }
+  });
+  var sixDOFdrag = new SixDofDragBehavior();
+  freza1mesh.addBehavior(sixDOFdrag);
+};
+var initModelFreza2Function = async function (scene) {
+  var freza2 = await SceneLoader.ImportMeshAsync("", "public/", "mill.glb");
+  var freza2mesh = freza2.meshes[0];
+  freza2mesh.rotate(new Vector3(-1, 0, 0), Math.PI / 2);
+  freza2mesh.scaling = new Vector3(0.1, 0.1, 0.1);
+  freza2mesh.position.x = -3;
+
+  var animationFunction = function (frezaMesh2) {
+    const frameRate = 10;
+    const xSlide = new Animation(
+      "xSlide",
+      "position.x",
+      frameRate,
+      Animation.ANIMATIONTYPE_FLOAT,
+      Animation.ANIMATIONLOOPMODE_CYCLE
+    );
+
+    const keyFrames = [];
+
+    keyFrames.push({
+      frame: 0,
+      value: 1
+    });
+
+    keyFrames.push({
+      frame: frameRate,
+      value: -5
+    });
+
+    keyFrames.push({
+      frame: 2 * frameRate,
+      value: 1
+    });
+
+    xSlide.setKeys(keyFrames);
+    frezaMesh2.animations.push(xSlide);
+    scene.beginAnimation(frezaMesh2, 0, 2 * frameRate, true);
+  };
+  animationFunction(freza2mesh);
+};
+
 initSetup().then((scene) => {
-  initModelFunction(scene);
-  initModel2Function(scene);
+  initModelFrezaFunction(scene);
+  initModelFreza2Function(scene);
+  //  initModelFunction(scene);
+  //  initModel2Function(scene);
 });
