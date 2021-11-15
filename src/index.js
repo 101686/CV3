@@ -17,7 +17,7 @@ var initSetup = async function () {
   const canvas = document.querySelector("#app");
   const engine = new Engine(canvas, true, null, true);
   const scene = new Scene(engine);
-
+  //koment
   //vytoření kamery v pozici -5 (dozadu)
   //const camera = new UniversalCamera("Camera", new Vector3(0, 5, 10), scene);
   //const camera = new UniversalCamera("kamera",new Vector3(1,1,10),scene);
