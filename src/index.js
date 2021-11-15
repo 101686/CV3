@@ -23,7 +23,7 @@ var initSetup = async function () {
   //const camera = new UniversalCamera("kamera",new Vector3(1,1,10),scene);
   const camera = new DeviceOrientationCamera(
     "kamera",
-    new Vector3(1, 1, 10),
+    new Vector3(1, 1, 9),
     scene
   );
 
