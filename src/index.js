@@ -26,7 +26,7 @@ var initSetup = async function () {
     new Vector3(1, 1, 10),
     scene
   );
-
+  // změna
   //zaměřit kameru do středu
   camera.setTarget(new Vector3(0, 1, 0));
   scene.activeCamera.attachControl(canvas, false);
