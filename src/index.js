@@ -84,7 +84,7 @@ var initModelFunction = async function (scene) {
 
   frezaMesh2.scaling = new Vector3(0.15, 0.15, 0.15);
   frezaMesh2.rotate(new Vector3(-1, 0, 0), Math.PI / 2);
-  frezaMesh2.position.x = 2;
+  frezaMesh2.position.x = 3;
   frezaMesh2.position.z = -2;
 
   //před vykreslením se vždy provede
