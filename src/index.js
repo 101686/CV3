@@ -92,7 +92,7 @@ var initModelFunction = async function (scene) {
     //sphere.position.x += 0.03;
     //light1.setDirectionToTarget(sphere.position);
     if (frezaMesh2.position.x > 2) {
-      frezaMesh2.rotate(new Vector3(0, 0, 1), (frezaMesh2.rotation.y += 0.01));
+      frezaMesh2.rotate(new Vector3(0, 0, 1), (frezaMesh2.rotation.y += 0.05));
     }
 
     //frezaMesh2.rotate(new Vector3(0, 0, 1), (frezaMesh2.rotation.y += 0.001));
